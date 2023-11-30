@@ -1,3 +1,19 @@
+function shoot() {
+    const currentTime = Date.now();
+    const timeBetweenShots = 200;
+
+    if (currentTime - lastShotTime > timeBetweenShots) {
+        let bullet = {
+            x: player.x + player.width / 2 - 2,
+            y: player.y,
+            width: 4,
+            height: 10,
+            speed: 8,
+        };
+        bullets.push(bullet);
+        lastShotTime = currentTime;
+    }
+}
 function enemyShoot(enemy) {
     const currentTime = Date.now();
 
