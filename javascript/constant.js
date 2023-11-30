@@ -13,6 +13,8 @@ let enemyImage1 = new Image();
 enemyImage1.src = "./images/enemy1.png";
 let enemyImage2 = new Image();
 enemyImage2.src = "./images/meteorite.png";
+let enemyImage3 = new Image();
+enemyImage3.src = "./images/enemy2.png";
 let playerImage = new Image();
 playerImage.src = "./images/player.png";
 let backgroundImage = new Image();
@@ -29,3 +31,7 @@ let lastEnemyShootTime = 0;
 let enemyShootInterval = 2000;
 let currentLevel = 1;
 let gameOvers = false;
+let isSoundOn = true;
+const backgroundMusic = new Audio('./sounds/backgruondsound.wav');
+const shootSound = new Audio('./sounds/shoot.wav');
+

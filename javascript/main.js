@@ -35,3 +35,8 @@ backgroundImage.src = './images/space.png';
 window.addEventListener('load', function() {
     gameLoop();
 });
+
+function startGame() {
+    location.replace("index.html");
+    document.getElementById('backgroundMusic').play();
+}

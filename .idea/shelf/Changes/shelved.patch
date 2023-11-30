@@ -1,0 +1,162 @@
+Index: javascript/control.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>document.addEventListener('mousemove', function(event) {\r\n    let mouseX = event.clientX - canvas.getBoundingClientRect().left;\r\n    let mouseY = event.clientY - canvas.getBoundingClientRect().top;\r\n\r\n    player.x = Math.max(0, Math.min(mouseX - player.width / 2, canvas.width - player.width));\r\n    player.y = Math.max(0, Math.min(mouseY - player.height / 2, canvas.height - player.height));\r\n});\r\n\r\ndocument.addEventListener('keydown', function(event) {\r\n    if (event.key === ' ') {\r\n        shoot();\r\n    }\r\n});\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/javascript/control.js b/javascript/control.js
+--- a/javascript/control.js	(revision dec71be6ec41ee0d2fd26d64fe61fdf06d4a5137)
++++ b/javascript/control.js	(date 1701332819471)
+@@ -12,6 +12,10 @@
+     }
+ });
+ 
+-
++document.addEventListener('keydown', function(event) {
++    if (event.key === 'm') {
++        toggleSound();
++    }
++});
+ 
+ 
+Index: javascript/main.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>function updateGame() {\r\n    if (!gameOvers) {\r\n        updateBullets();\r\n        updateEnemies();\r\n        checkCollisions();\r\n    }\r\n}\r\nfunction gameLoop() {\r\n    updateGame();\r\n    renderGame();\r\n    requestAnimationFrame(gameLoop);\r\n}\r\n\r\nenemyImage1.onload = function() {\r\n    gameLoop();\r\n};\r\n\r\nenemyImage2.onload = function() {\r\n    gameLoop();\r\n};\r\n\r\nplayerImage.onload = function() {\r\n    gameLoop();\r\n};\r\n\r\nbackgroundImage.onload = function() {\r\n    gameLoop();\r\n};\r\n\r\nenemyImage2.src = './images/meteorite.png';\r\nenemyImage1.src = './images/enemy1.png';\r\nplayerImage.src = './images/player.png';\r\nbackgroundImage.src = './images/space.png';\r\n\r\nwindow.addEventListener('load', function() {\r\n    gameLoop();\r\n});\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/javascript/main.js b/javascript/main.js
+--- a/javascript/main.js	(revision dec71be6ec41ee0d2fd26d64fe61fdf06d4a5137)
++++ b/javascript/main.js	(date 1701331793888)
+@@ -35,3 +35,8 @@
+ window.addEventListener('load', function() {
+     gameLoop();
+ });
++
++function startGame() {
++    location.replace("index.html");
++    document.getElementById('backgroundMusic').play();
++}
+Index: javascript/constant.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const canvas = document.getElementById('gameCanvas');\r\nconst ctx = canvas.getContext('2d');\r\nlet player = {\r\n    x: 50,\r\n    y: 50,\r\n    width: 20,\r\n    height: 20,\r\n    speed: 5,\r\n    lives: 5,\r\n};\r\n\r\nlet enemyImage1 = new Image();\r\nenemyImage1.src = \"./images/enemy1.png\";\r\nlet enemyImage2 = new Image();\r\nenemyImage2.src = \"./images/meteorite.png\";\r\nlet playerImage = new Image();\r\nplayerImage.src = \"./images/player.png\";\r\nlet backgroundImage = new Image();\r\nbackgroundImage.src = \"./images/space.png\";\r\nlet lastShotTime = 0;\r\nlet enemies = [];\r\nlet bullets = [];\r\nlet enemyBullets = [];\r\nlet enemiesCanShoot = [];\r\nlet score = 0;\r\nlet remainingEnemies = 100;\r\nlet enemyCoolDown = 2000;\r\nlet lastEnemyShootTime = 0;\r\nlet enemyShootInterval = 2000;\r\nlet currentLevel = 1;\r\nlet gameOvers = false;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/javascript/constant.js b/javascript/constant.js
+--- a/javascript/constant.js	(revision dec71be6ec41ee0d2fd26d64fe61fdf06d4a5137)
++++ b/javascript/constant.js	(date 1701332595168)
+@@ -13,6 +13,8 @@
+ enemyImage1.src = "./images/enemy1.png";
+ let enemyImage2 = new Image();
+ enemyImage2.src = "./images/meteorite.png";
++let enemyImage3 = new Image();
++enemyImage3.src = "./images/enemy2.png";
+ let playerImage = new Image();
+ playerImage.src = "./images/player.png";
+ let backgroundImage = new Image();
+@@ -28,4 +30,8 @@
+ let lastEnemyShootTime = 0;
+ let enemyShootInterval = 2000;
+ let currentLevel = 1;
+-let gameOvers = false;
+\ No newline at end of file
++let gameOvers = false;
++let isSoundOn = true;
++const backgroundMusic = new Audio('./sounds/backgruondsound.wav');
++const shootSound = new Audio('./sounds/shoot.wav');
++
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Canvas Game</title>\r\n    <style>\r\n        canvas {\r\n            border: 1px solid #000;\r\n            display: block;\r\n            margin: 20px auto;\r\n        }\r\n        body {\r\n            display: flex;\r\n            align-content: center;\r\n            flex-direction: column;\r\n            padding: 0;\r\n            margin: 0;\r\n            height: 100vh;\r\n            background: linear-gradient(\r\n            0deg,\r\n            rgb(97, 98, 99) 0%,\r\n            rgba(0, 0, 0, 0) 100%\r\n            );\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n<canvas id=\"gameCanvas\" width=\"800\" height=\"600\"></canvas>\r\n<audio id=\"shootSound\" src=\"./sounds/shoot.wav\"></audio>\r\n<audio id=\"backgroundMusic\" loop autoplay volume=\"0.5\" src=\"./sounds/backgruondsound.wav\"></audio>\r\n<script src=\"javascript/audio.js\"></script>\r\n<script src=\"javascript/constant.js\"></script>\r\n<script src=\"javascript/logicGame.js\"></script>\r\n<script src=\"javascript/renderGame.js\"></script>\r\n<script src=\"javascript/stage1.js\"></script>\r\n<script src=\"javascript/stage2.js\"></script>\r\n<script src=\"javascript/control.js\"></script>\r\n<script src=\"javascript/main.js\"></script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+--- a/index.html	(revision dec71be6ec41ee0d2fd26d64fe61fdf06d4a5137)
++++ b/index.html	(date 1701332122779)
+@@ -28,7 +28,9 @@
+ <body>
+ <canvas id="gameCanvas" width="800" height="600"></canvas>
+ <audio id="shootSound" src="./sounds/shoot.wav"></audio>
+-<audio id="backgroundMusic" loop autoplay volume="0.5" src="./sounds/backgruondsound.wav"></audio>
++<audio id="backgroundMusic" loop>
++    <source src="./sounds/backgruondsound.wav" type="audio/wav">
++</audio>
+ <script src="javascript/audio.js"></script>
+ <script src="javascript/constant.js"></script>
+ <script src="javascript/logicGame.js"></script>
+Index: startScreen.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Galaxy Guardians</title>\r\n</head>\r\n<style>\r\n    body {\r\n        background-image: url(./images/image.png);\r\n        background-size: cover;\r\n        text-align: center;\r\n    }\r\n    h1 {\r\n        font-size: 120px;;\r\n        text-align: center;;\r\n        background-color: white;\r\n        color: #58257b;\r\n        text-shadow: 5px 5px violet;\r\n\r\n    }\r\n    button {\r\n        padding: 15px 32px;\r\n        text-align: center;\r\n        text-decoration: none;\r\n        display: inline-block;\r\n        margin: 0 auto;\r\n        cursor: pointer;\r\n        font-size: 60px;\r\n        background-color: yellow;\r\n        color: black;\r\n        border-radius: 100px;\r\n    }\r\n</style>\r\n<body>\r\n<h1> Galaxy Guardians </h1>\r\n<button class=\"center\" id=\"start\" onclick=\"startGame()\">START</button>\r\n<script>\r\n    function startGame() {\r\n        location.replace(\"index.html\");\r\n    }\r\n</script>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/startScreen.html b/startScreen.html
+--- a/startScreen.html	(revision dec71be6ec41ee0d2fd26d64fe61fdf06d4a5137)
++++ b/startScreen.html	(date 1701330442404)
+@@ -34,10 +34,7 @@
+ <body>
+ <h1> Galaxy Guardians </h1>
+ <button class="center" id="start" onclick="startGame()">START</button>
+-<script>
+-    function startGame() {
+-        location.replace("index.html");
+-    }
++<script src="./javascript/main.js">
+ </script>
+ </body>
+ </html>
+Index: javascript/logicGame.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>function shoot() {\r\n    const currentTime = Date.now();\r\n    const timeBetweenShots = 200;\r\n\r\n    if (currentTime - lastShotTime > timeBetweenShots) {\r\n        let bullet = {\r\n            x: player.x + player.width / 2 - 2,\r\n            y: player.y,\r\n            width: 4,\r\n            height: 10,\r\n            speed: 8,\r\n        };\r\n        bullets.push(bullet);\r\n        lastShotTime = currentTime;\r\n\r\n        playShootSound();\r\n    }\r\n}\r\nfunction enemyShoot(enemy) {\r\n    const currentTime = Date.now();\r\n\r\n    // Kiểm tra xem đã đủ thời gian từ lần bắn cuối cùng chưa\r\n    if (currentTime - enemy.lastShotTime > enemyCoolDown) {\r\n        let enemyBullet = {\r\n            x: enemy.x + enemy.width / 2 - 2,\r\n            y: enemy.y + enemy.height,\r\n            width: 4,\r\n            height: 10,\r\n            speed: 0.5, // Chậm hơn so với đạn của người chơi\r\n        };\r\n\r\n        enemyBullets.push(enemyBullet);\r\n\r\n        // Cập nhật thời điểm bắn đạn cuối cùng cho kẻ thù hiện tại\r\n        enemy.lastShotTime = currentTime;\r\n    }\r\n}\r\nfunction updateBullets() {\r\n    for (let i = 0; i < bullets.length; i++) {\r\n        bullets[i].y -= bullets[i].speed;\r\n\r\n        for (let j = 0; j < enemies.length; j++) {\r\n            if (\r\n                bullets[i].x < enemies[j].x + enemies[j].width &&\r\n                bullets[i].x + bullets[i].width > enemies[j].x &&\r\n                bullets[i].y < enemies[j].y + enemies[j].height &&\r\n                bullets[i].y + bullets[i].height > enemies[j].y\r\n            ) {\r\n                score++;\r\n                bullets.splice(i, 1);\r\n                i--;\r\n                enemies.splice(j, 1);\r\n                remainingEnemies--;\r\n\r\n                if (remainingEnemies === 0) {\r\n                    nextLevel();\r\n                }\r\n\r\n                if (score % 100 === 0) {\r\n                    addLife();\r\n                }\r\n\r\n                break;\r\n            }\r\n        }\r\n\r\n        if (bullets[i] && bullets[i].y < 0) {\r\n            bullets.splice(i, 1);\r\n            i--;\r\n        }\r\n    }\r\n\r\n    for (let i = 0; i < enemyBullets.length; i++) {\r\n        enemyBullets[i].y += enemyBullets[i].speed;\r\n\r\n        if (\r\n            enemyBullets[i].x < player.x + player.width &&\r\n            enemyBullets[i].x + enemyBullets[i].width > player.x &&\r\n            enemyBullets[i].y < player.y + player.height &&\r\n            enemyBullets[i].y + enemyBullets[i].height > player.y\r\n        ) {\r\n            playerHit();\r\n            enemyBullets.splice(i, 1);\r\n            i--;\r\n            break;\r\n        }\r\n\r\n        if (enemyBullets[i] && enemyBullets[i].y > canvas.height) {\r\n            enemyBullets.splice(i, 1);\r\n            i--;\r\n        }\r\n    }\r\n}\r\n\r\nfunction addLife() {\r\n    player.lives++;\r\n}\r\n\r\n\r\n\r\nfunction updateEnemies() {\r\n\r\n    for (let i = 0; i < enemies.length; i++) {\r\n        for (let j = i + 1; j < enemies.length; j++) {\r\n            let distanceX = Math.abs(enemies[i].x - enemies[j].x);\r\n            let distanceY = Math.abs(enemies[i].y - enemies[j].y);\r\n            let distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);\r\n\r\n            // Đặt giá trị khoảng cách tối thiểu giữa các quái vật\r\n            let minDistance = 20;\r\n            if (distance < minDistance) {\r\n                // Điều chỉnh hướng di chuyển hoặc tốc độ theo nhu cầu\r\n                // Ví dụ: enemies[i].directionX *= -1; // Đảo hướng di chuyển\r\n                // Hoặc: enemies[i].speed *= 0.9; // Giảm tốc độ\r\n            }\r\n        }\r\n    }\r\n    let currentTime = Date.now();\r\n    for (let enemy of enemies) {\r\n        enemy.y += enemy.speed * enemy.directionY;\r\n        enemy.x += enemy.speed * enemy.directionX;\r\n\r\n        // Kiểm tra và điều chỉnh vị trí của enemy nếu nó vượt quá biên phải của canvas\r\n        if (enemy.x < 0) {\r\n            enemy.x = 0;\r\n            enemy.directionX *= -1; // Đảo hướng di chuyển khi va chạm với biên trái\r\n        } else if (enemy.x + enemy.width > canvas.width) {\r\n            enemy.x = canvas.width - enemy.width;\r\n            enemy.directionX *= -1; // Đảo hướng di chuyển khi va chạm với biên phải\r\n        }\r\n\r\n        if (enemy.canShoot && Math.random() < 0.005) {\r\n            enemyShoot(enemy);\r\n        }\r\n\r\n        if (enemy.y <= 0 || enemy.y + enemy.height >= canvas.height) {\r\n            enemy.directionY *= -1;\r\n        }\r\n\r\n        if (enemy.x <= 0 || enemy.x + enemy.width >= canvas.width) {\r\n            enemy.directionX *= -1;\r\n        }\r\n    }\r\n    if (currentTime - lastEnemyShootTime > enemyShootInterval) {\r\n        // Chọn ngẫu nhiên 5 kẻ thù từ mảng và cho chúng bắn\r\n        let randomEnemies = getRandomEnemies(5);\r\n        randomEnemies.forEach((enemy) => {\r\n            enemyShoot(enemy);\r\n        });\r\n\r\n        lastEnemyShootTime = currentTime;\r\n    }\r\n\r\n\r\n    if (enemies.length < remainingEnemies && Math.random() < 0.02) {\r\n        if (currentLevel === 1) {\r\n            spawnEnemyStage1();\r\n        } else if (currentLevel === 2) {\r\n            spawnEnemyStage2();\r\n        }\r\n    }\r\n}\r\n\r\nfunction getRandomEnemies(n) {\r\n    let randomEnemies = [];\r\n    while (randomEnemies.length < n && enemiesCanShoot.length > 0) {\r\n        let randomIndex = Math.floor(Math.random() * enemiesCanShoot.length);\r\n        randomEnemies.push(enemiesCanShoot[randomIndex]);\r\n        enemiesCanShoot.splice(randomIndex, 1);\r\n    }\r\n    return randomEnemies;\r\n}\r\n\r\nfunction checkCollisions() {\r\n    for (let enemy of enemies) {\r\n        if (\r\n            player.x < enemy.x + enemy.width &&\r\n            player.x + player.width > enemy.x &&\r\n            player.y < enemy.y + enemy.height &&\r\n            player.y + player.height > enemy.y\r\n        ) {\r\n            playerHit();\r\n        }\r\n    }\r\n}\r\n\r\nfunction playerHit() {\r\n    player.lives--;\r\n\r\n    if (player.lives === 0) {\r\n        gameOver();\r\n    } else {\r\n        player.x = canvas.width / 2 - player.width / 2;\r\n        player.y = canvas.height + 50;\r\n    }\r\n}\r\n\r\nfunction gameOver() {\r\n\r\n    gameOvers = true;\r\n\r\n    enemies = [];\r\n    bullets = [];\r\n    enemyBullets = [];\r\n    // Hiển thị hộp thoại thông báo Game Over\r\n    let gameOverDiv = document.createElement('div');\r\n    gameOverDiv.style.position = 'absolute';\r\n    gameOverDiv.style.top = '50%';\r\n    gameOverDiv.style.left = '50%';\r\n    gameOverDiv.style.transform = 'translate(-50%, -50%)';\r\n    gameOverDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';\r\n    gameOverDiv.style.padding = '20px';\r\n    gameOverDiv.style.textAlign = 'center';\r\n    gameOverDiv.style.color = '#fff';\r\n    gameOverDiv.style.borderRadius = '10px';\r\n\r\n    gameOverDiv.innerHTML = `\r\n        <h2>Game Over! Your score is ${score}</h2>\r\n        <button onclick=\"retryGame()\">Retry</button>\r\n        <button onclick=\"exitGame()\">Exit</button>\r\n    `;\r\n\r\n    document.body.appendChild(gameOverDiv);\r\n}\r\n\r\nfunction retryGame() {\r\n    // Xóa hộp thoại thông báo Game Over\r\n    document.body.removeChild(document.querySelector('div'));\r\n\r\n    // Gọi lại hàm resetGame để bắt đầu lại trò chơi\r\n    resetGame();\r\n    gameOvers = false;\r\n}\r\n\r\nfunction exitGame() {\r\n    // Đóng trình duyệt hoặc chuyển đến trang chính\r\n    window.close(); // Đóng trình duyệt\r\n    // hoặc\r\n    // window.location.href = 'index.html'; // Chuyển đến trang chính (thay 'index.html' bằng đường dẫn tương ứng)\r\n}\r\n\r\nfunction nextLevel() {\r\n    currentLevel++;\r\n\r\n    if (currentLevel <= 2) {\r\n        alert('Level ' + currentLevel + ' complete! Get ready for the next level!');\r\n        resetGame();\r\n    } else if (currentLevel === 3) {\r\n        alert('Boss Level! Prepare for the final showdown!');\r\n        spawnBoss();\r\n    } else {\r\n        gameWin();\r\n    }\r\n}\r\n\r\nfunction resetGame() {\r\n    score = 0;\r\n    player.lives = 5;\r\n    player.x = 50;\r\n    player.y = 50;\r\n    enemies = [];\r\n    enemyBullets = [];\r\n    bullets = [];\r\n    remainingEnemies = 100;\r\n    enemiesCanShoot = [...enemies]; // Sao chép tất cả kẻ thù vào mảng mới\r\n    lastEnemyShootTime = 0; // Reset thời điểm cuối cùng bắn của nhóm kẻ thù\r\n\r\n    if (currentLevel === 1) {\r\n        spawnEnemyStage1();\r\n    } else if (currentLevel === 2) {\r\n        spawnEnemyStage2();\r\n    } else if (currentLevel === 3) {\r\n        spawnBoss();\r\n    }\r\n}\r\n\r\nfunction gameWin() {\r\n    alert('Congratulations! You have defeated all enemies and won the game!');\r\n    resetGame();\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/javascript/logicGame.js b/javascript/logicGame.js
+--- a/javascript/logicGame.js	(revision dec71be6ec41ee0d2fd26d64fe61fdf06d4a5137)
++++ b/javascript/logicGame.js	(date 1701332710257)
+@@ -13,7 +13,9 @@
+         bullets.push(bullet);
+         lastShotTime = currentTime;
+ 
+-        playShootSound();
++        if (isSoundOn) {
++            shootSound.play();
++        }
+     }
+ }
+ function enemyShoot(enemy) {
+@@ -216,7 +218,7 @@
+ 
+     gameOverDiv.innerHTML = `
+         <h2>Game Over! Your score is ${score}</h2>
+-        <button onclick="retryGame()">Retry</button>
++        <button onclick="retryGame()">TryAgain</button>
+         <button onclick="exitGame()">Exit</button>
+     `;
+ 
+Index: javascript/renderGame.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>function renderBullets() {\r\n    ctx.fillStyle = '#0F0';\r\n    for (let bullet of bullets) {\r\n        ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);\r\n    }\r\n\r\n    ctx.fillStyle = '#F00';\r\n    for (let bullet of enemyBullets) {\r\n        ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);\r\n    }\r\n}\r\n\r\nfunction renderScore() {\r\n    ctx.fillStyle = '#ffffff';\r\n    ctx.font = '20px Arial';\r\n    ctx.fillText('Score: ' + score, 10, 30);\r\n}\r\n\r\nfunction renderRemainingEnemies() {\r\n    ctx.fillStyle = '#ffffff';\r\n    ctx.font = '20px Arial';\r\n    ctx.fillText('Remaining Enemies: ' + remainingEnemies, 10, 60);\r\n}\r\n\r\nfunction renderLives() {\r\n    ctx.fillStyle = '#ffffff';\r\n    ctx.font = '20px Arial';\r\n    ctx.fillText('Lives: ' + player.lives, 10, 90);\r\n}\r\n\r\nfunction renderLevel() {\r\n    ctx.fillStyle = '#ffffff';\r\n    ctx.font = '20px Arial';\r\n    ctx.fillText('Level: ' + currentLevel, 10, 120);\r\n}\r\n\r\nfunction renderEnemies() {\r\n    if (currentLevel === 1) {\r\n        for (let enemy of enemies) {\r\n            ctx.drawImage(enemyImage1, enemy.x, enemy.y, enemy.width, enemy.height);\r\n        }\r\n    } else if (currentLevel === 2) {\r\n        for (let enemy of enemies) {\r\n            ctx.drawImage(enemyImage2, enemy.x, enemy.y, enemy.width, enemy.height);\r\n        }\r\n    }\r\n}\r\n\r\nfunction renderGame() {\r\n    ctx.clearRect(0, 0, canvas.width, canvas.height);\r\n\r\n    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);\r\n    ctx.drawImage(playerImage, player.x, player.y, player.width, player.height)\r\n\r\n    if (!gameOvers) {\r\n        renderEnemies();\r\n        renderBullets();\r\n        renderScore();\r\n        renderRemainingEnemies();\r\n        renderLives();\r\n        renderLevel();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/javascript/renderGame.js b/javascript/renderGame.js
+--- a/javascript/renderGame.js	(revision dec71be6ec41ee0d2fd26d64fe61fdf06d4a5137)
++++ b/javascript/renderGame.js	(date 1701332122776)
+@@ -38,6 +38,7 @@
+     if (currentLevel === 1) {
+         for (let enemy of enemies) {
+             ctx.drawImage(enemyImage1, enemy.x, enemy.y, enemy.width, enemy.height);
++            ctx.drawImage(enemyImage3, enemy.x, enemy.y, enemy.width, enemy.height);
+         }
+     } else if (currentLevel === 2) {
+         for (let enemy of enemies) {

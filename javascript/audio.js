@@ -27,5 +27,6 @@ function toggleSound() {
     } else {
         backgroundMusic.pause();
         shootSound.pause();
+
     }
 }

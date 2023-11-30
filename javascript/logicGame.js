@@ -13,7 +13,9 @@ function shoot() {
         bullets.push(bullet);
         lastShotTime = currentTime;
 
-        playShootSound();
+        if (isSoundOn) {
+            shootSound.play();
+        }
     }
 }
 function enemyShoot(enemy) {
@@ -216,7 +218,7 @@ function gameOver() {
 
     gameOverDiv.innerHTML = `
         <h2>Game Over! Your score is ${score}</h2>
-        <button onclick="retryGame()">Retry</button>
+        <button onclick="retryGame()">TryAgain</button>
         <button onclick="exitGame()">Exit</button>
     `;
 

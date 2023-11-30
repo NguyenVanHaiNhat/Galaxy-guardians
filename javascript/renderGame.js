@@ -38,6 +38,7 @@ function renderEnemies() {
     if (currentLevel === 1) {
         for (let enemy of enemies) {
             ctx.drawImage(enemyImage1, enemy.x, enemy.y, enemy.width, enemy.height);
+            ctx.drawImage(enemyImage3, enemy.x, enemy.y, enemy.width, enemy.height);
         }
     } else if (currentLevel === 2) {
         for (let enemy of enemies) {
