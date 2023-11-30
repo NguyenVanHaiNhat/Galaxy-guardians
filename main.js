@@ -28,6 +28,7 @@ let enemyCoolDown = 2000;
 let lastEnemyShootTime = 0;
 let enemyShootInterval = 2000;
 let currentLevel = 1;
+let gameOvers = false;
 
 document.addEventListener('mousemove', function(event) {
     let mouseX = event.clientX - canvas.getBoundingClientRect().left;
@@ -241,7 +242,7 @@ function spawnEnemyStage2() {
     let rowWidth = canvas.width / 5;
     let enemyWidth = 20;
     let enemyHeight = 20;
-    let enemySpeed = 1;
+    let enemySpeed = 0.05;
 
     for (let i = 0; i < 5; i++) {
         let enemy = {
@@ -252,8 +253,6 @@ function spawnEnemyStage2() {
             speed: enemySpeed,
             directionX: -1,
             directionY: 1,
-            canShoot: true,
-            lastShotTime: 0,
         };
         enemies.push(enemy);
     }
@@ -325,18 +324,22 @@ function renderGame() {
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(playerImage, player.x, player.y, player.width, player.height)
 
-    renderEnemies();
-    renderBullets();
-    renderScore();
-    renderRemainingEnemies();
-    renderLives();
-    renderLevel();
+    if (!gameOvers) {
+        renderEnemies();
+        renderBullets();
+        renderScore();
+        renderRemainingEnemies();
+        renderLives();
+        renderLevel();
+    }
 }
 
 function updateGame() {
-    updateBullets();
-    updateEnemies();
-    checkCollisions();
+    if (!gameOvers) {
+        updateBullets();
+        updateEnemies();
+        checkCollisions();
+    }
 }
 
 function gameLoop() {
@@ -346,8 +349,47 @@ function gameLoop() {
 }
 
 function gameOver() {
-    alert('Game Over! Your score is ' + score);
+
+    gameOvers = true;
+
+    enemies = [];
+    bullets = [];
+    enemyBullets = [];
+    // Hiển thị hộp thoại thông báo Game Over
+    let gameOverDiv = document.createElement('div');
+    gameOverDiv.style.position = 'absolute';
+    gameOverDiv.style.top = '50%';
+    gameOverDiv.style.left = '50%';
+    gameOverDiv.style.transform = 'translate(-50%, -50%)';
+    gameOverDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    gameOverDiv.style.padding = '20px';
+    gameOverDiv.style.textAlign = 'center';
+    gameOverDiv.style.color = '#fff';
+    gameOverDiv.style.borderRadius = '10px';
+
+    gameOverDiv.innerHTML = `
+        <h2>Game Over! Your score is ${score}</h2>
+        <button onclick="retryGame()">Retry</button>
+        <button onclick="exitGame()">Exit</button>
+    `;
+
+    document.body.appendChild(gameOverDiv);
+}
+
+function retryGame() {
+    // Xóa hộp thoại thông báo Game Over
+    document.body.removeChild(document.querySelector('div'));
+
+    // Gọi lại hàm resetGame để bắt đầu lại trò chơi
     resetGame();
+    gameOvers = false;
+}
+
+function exitGame() {
+    // Đóng trình duyệt hoặc chuyển đến trang chính
+    window.close(); // Đóng trình duyệt
+    // hoặc
+    // window.location.href = 'index.html'; // Chuyển đến trang chính (thay 'index.html' bằng đường dẫn tương ứng)
 }
 
 function nextLevel() {
