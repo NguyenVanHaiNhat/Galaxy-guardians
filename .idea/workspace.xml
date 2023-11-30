@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c45daa1f-436d-47c5-af70-068e71efe133" name="Changes" comment="code màn 2 của game">
+      <change afterPath="$PROJECT_DIR$/javascript/constant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -78,7 +81,7 @@
       <workItem from="1701175181574" duration="663000" />
       <workItem from="1701220872659" duration="3357000" />
       <workItem from="1701225948085" duration="14141000" />
-      <workItem from="1701306497392" duration="5947000" />
+      <workItem from="1701306497392" duration="6645000" />
     </task>
     <task id="LOCAL-00001" summary="gần hoàn thiện chức năng">
       <option name="closed" value="true" />
