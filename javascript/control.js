@@ -30,22 +30,4 @@ function shoot() {
     }
 }
 
-function enemyShoot(enemy) {
-    const currentTime = Date.now();
 
-    // Kiểm tra xem đã đủ thời gian từ lần bắn cuối cùng chưa
-    if (currentTime - enemy.lastShotTime > enemyCoolDown) {
-        let enemyBullet = {
-            x: enemy.x + enemy.width / 2 - 2,
-            y: enemy.y + enemy.height,
-            width: 4,
-            height: 10,
-            speed: 0.5, // Chậm hơn so với đạn của người chơi
-        };
-
-        enemyBullets.push(enemyBullet);
-
-        // Cập nhật thời điểm bắn đạn cuối cùng cho kẻ thù hiện tại
-        enemy.lastShotTime = currentTime;
-    }
-}
