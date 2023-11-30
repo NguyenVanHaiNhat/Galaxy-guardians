@@ -1,4 +1,3 @@
-
 function updateGame() {
     if (!gameOvers) {
         updateBullets();
