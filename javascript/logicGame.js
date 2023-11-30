@@ -1,4 +1,3 @@
-
 function updateBullets() {
     for (let i = 0; i < bullets.length; i++) {
         bullets[i].y -= bullets[i].speed;
@@ -157,21 +156,6 @@ function playerHit() {
         player.x = canvas.width / 2 - player.width / 2;
         player.y = canvas.height + 50;
     }
-}
-
-
-function updateGame() {
-    if (!gameOvers) {
-        updateBullets();
-        updateEnemies();
-        checkCollisions();
-    }
-}
-
-function gameLoop() {
-    updateGame();
-    renderGame();
-    requestAnimationFrame(gameLoop);
 }
 
 function gameOver() {

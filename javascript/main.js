@@ -1,4 +1,18 @@
 
+function updateGame() {
+    if (!gameOvers) {
+        updateBullets();
+        updateEnemies();
+        checkCollisions();
+    }
+}
+
+function gameLoop() {
+    updateGame();
+    renderGame();
+    requestAnimationFrame(gameLoop);
+}
+
 enemyImage1.onload = function() {
     gameLoop();
 };
