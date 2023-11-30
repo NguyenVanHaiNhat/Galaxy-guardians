@@ -1,5 +1,4 @@
 function playShootSound() {
-    const shootSound = new Audio('./sounds/shoot.wav');
 
     shootSound.addEventListener('ended', function() {
         this.currentTime = 0;
@@ -13,7 +12,20 @@ window.addEventListener('load', function() {
 });
 
 function playBackgroundMusic() {
-    const backgroundMusic = new Audio('./sounds/backgruondsound.wav');
+
     backgroundMusic.volume = 0.5;
     backgroundMusic.play();
+}
+
+function toggleSound() {
+
+    isSoundOn = !isSoundOn;
+
+    if (isSoundOn) {
+        backgroundMusic.play();
+        shootSound.play();
+    } else {
+        backgroundMusic.pause();
+        shootSound.pause();
+    }
 }
