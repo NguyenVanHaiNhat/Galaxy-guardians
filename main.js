@@ -6,13 +6,13 @@ let player = {
     width: 20,
     height: 20,
     speed: 5,
-    lives: 3,
+    lives: 5,
 };
 
 let enemyImage1 = new Image();
 enemyImage1.src = "./images/enemy1.png";
 let enemyImage2 = new Image();
-enemyImage2.src = "./images/enemy2.png";
+enemyImage2.src = "./images/meteorite.png";
 let playerImage = new Image();
 playerImage.src = "./images/player.png";
 let backgroundImage = new Image();
@@ -155,6 +155,22 @@ function renderBullets() {
 }
 
 function updateEnemies() {
+
+    for (let i = 0; i < enemies.length; i++) {
+        for (let j = i + 1; j < enemies.length; j++) {
+            let distanceX = Math.abs(enemies[i].x - enemies[j].x);
+            let distanceY = Math.abs(enemies[i].y - enemies[j].y);
+            let distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+            // Đặt giá trị khoảng cách tối thiểu giữa các quái vật
+            let minDistance = 20;
+            if (distance < minDistance) {
+                // Điều chỉnh hướng di chuyển hoặc tốc độ theo nhu cầu
+                // Ví dụ: enemies[i].directionX *= -1; // Đảo hướng di chuyển
+                // Hoặc: enemies[i].speed *= 0.9; // Giảm tốc độ
+            }
+        }
+    }
     let currentTime = Date.now();
     for (let enemy of enemies) {
         enemy.y += enemy.speed * enemy.directionY;
@@ -242,7 +258,7 @@ function spawnEnemyStage2() {
     let rowWidth = canvas.width / 5;
     let enemyWidth = 20;
     let enemyHeight = 20;
-    let enemySpeed = 0.05;
+    let enemySpeed = 0.5;
 
     for (let i = 0; i < 5; i++) {
         let enemy = {
@@ -408,7 +424,7 @@ function nextLevel() {
 
 function resetGame() {
     score = 0;
-    player.lives = 3;
+    player.lives = 5;
     player.x = 50;
     player.y = 50;
     enemies = [];
@@ -448,7 +464,7 @@ backgroundImage.onload = function() {
     gameLoop();
 };
 
-enemyImage2.src = './images/enemy2.png';
+enemyImage2.src = './images/meteorite.png';
 enemyImage1.src = './images/enemy1.png';
 playerImage.src = './images/player.png';
 backgroundImage.src = './images/space.png';
