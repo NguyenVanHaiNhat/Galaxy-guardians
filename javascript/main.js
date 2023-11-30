@@ -5,7 +5,6 @@ function updateGame() {
         checkCollisions();
     }
 }
-
 function gameLoop() {
     updateGame();
     renderGame();
