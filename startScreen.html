@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Galaxy Guardians</title>
 </head>
+<style>
+    body {
+        background-image: url(./images/image.png);
+        background-size: cover;
+        text-align: center;
+    }
+    h1 {
+        font-size: 120px;;
+        text-align: center;;
+        background-color: white;
+        color: #58257b;
+        text-shadow: 5px 5px violet;
+
+    }
+    button {
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 auto;
+        cursor: pointer;
+        font-size: 60px;
+        background-color: yellow;
+        color: black;
+        border-radius: 100px;
+    }
+</style>
 <body>
-<script src="index.html"></script>
+<h1> Galaxy Guardians </h1>
+<button class="center" id="start" onclick="startGame()">START</button>
+<script>
+    function startGame() {
+        location.replace("index.html");
+    }
+</script>
 </body>
 </html>

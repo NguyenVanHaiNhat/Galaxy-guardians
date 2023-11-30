@@ -12,6 +12,8 @@ function shoot() {
         };
         bullets.push(bullet);
         lastShotTime = currentTime;
+
+        playShootSound();
     }
 }
 function enemyShoot(enemy) {
