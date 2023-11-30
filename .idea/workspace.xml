@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c45daa1f-436d-47c5-af70-068e71efe133" name="Changes" comment="gần hoàn thiện chức năng">
+      <change afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2YnLLIjpTP1AUZS4z4JHdayIj3M" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "E:/Bootcamp Java Fullstack/C1023H1-JV101-NguyenVanHaiNhat/Module_1/case",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case" />
+      <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case\code" />
+      <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case\js" />
+      <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case\html" />
+      <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case\images" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c45daa1f-436d-47c5-af70-068e71efe133" name="Changes" comment="" />
+      <created>1701156339162</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701156339162</updated>
+      <workItem from="1701156340171" duration="6897000" />
+      <workItem from="1701163964081" duration="2867000" />
+      <workItem from="1701175181574" duration="663000" />
+      <workItem from="1701220872659" duration="3357000" />
+      <workItem from="1701225948085" duration="14141000" />
+      <workItem from="1701306497392" duration="3508000" />
+    </task>
+    <task id="LOCAL-00001" summary="gần hoàn thiện chức năng">
+      <option name="closed" value="true" />
+      <created>1701164348666</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701164348666</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gần hoàn thiện chức năng">
+      <option name="closed" value="true" />
+      <created>1701225468353</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701225468353</updated>
+    </task>
+    <task id="LOCAL-00003" summary="gần hoàn thiện chức năng">
+      <option name="closed" value="true" />
+      <created>1701309994740</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701309994740</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gần hoàn thiện chức năng" />
+    <option name="LAST_COMMIT_MESSAGE" value="gần hoàn thiện chức năng" />
+  </component>
+</project>
