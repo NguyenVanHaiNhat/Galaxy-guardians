@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c45daa1f-436d-47c5-af70-068e71efe133" name="Changes" comment="code màn 2 của game">
-      <change afterPath="$PROJECT_DIR$/javascript/constant.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/control.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/logicGame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/renderGame.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/stage1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/stage2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,31 +44,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/Bootcamp Java Fullstack/C1023H1-JV101-NguyenVanHaiNhat/Module_1/case",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Bootcamp Java Fullstack/C1023H1-JV101-NguyenVanHaiNhat/Module_1/case&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case\javascript" />
       <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case" />
       <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case\code" />
       <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case\js" />
       <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case\html" />
-      <recent name="E:\Bootcamp Java Fullstack\C1023H1-JV101-NguyenVanHaiNhat\Module_1\case\images" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -81,7 +84,8 @@
       <workItem from="1701175181574" duration="663000" />
       <workItem from="1701220872659" duration="3357000" />
       <workItem from="1701225948085" duration="14141000" />
-      <workItem from="1701306497392" duration="6645000" />
+      <workItem from="1701306497392" duration="8411000" />
+      <workItem from="1701320937107" duration="335000" />
     </task>
     <task id="LOCAL-00001" summary="gần hoàn thiện chức năng">
       <option name="closed" value="true" />
