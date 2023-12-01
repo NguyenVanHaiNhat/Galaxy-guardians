@@ -34,4 +34,7 @@ let gameOvers = false;
 let isSoundOn = true;
 const backgroundMusic = new Audio('./sounds/backgruondsound.wav');
 const shootSound = new Audio('./sounds/shoot.wav');
+let killEnemySound = new Audio('/sounds/enemy-death.wav');
+let shootVolume = 0.2;
+let enemyDeathVolume = 0.2;
 
