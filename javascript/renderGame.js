@@ -13,7 +13,7 @@ function renderBullets() {
 function renderScore() {
     ctx.fillStyle = '#ffffff';
     ctx.font = '20px Arial';
-    ctx.fillText('Score: ' + score, 710, 30);
+    ctx.fillText('Score: ' + score, 700, 30);
 }
 
 function renderRemainingEnemies() {
