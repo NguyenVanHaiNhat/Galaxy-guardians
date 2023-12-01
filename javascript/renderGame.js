@@ -13,25 +13,19 @@ function renderBullets() {
 function renderScore() {
     ctx.fillStyle = '#ffffff';
     ctx.font = '20px Arial';
-    ctx.fillText('Score: ' + score, 10, 30);
+    ctx.fillText('Score: ' + score, 710, 30);
 }
 
 function renderRemainingEnemies() {
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#d2a40e';
     ctx.font = '20px Arial';
-    ctx.fillText('Remaining Enemies: ' + remainingEnemies, 10, 60);
+    ctx.fillText('Remaining Enemies: ' + remainingEnemies, 10, 30);
 }
 
 function renderLives() {
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = '#d20e0e';
     ctx.font = '20px Arial';
-    ctx.fillText('Lives: ' + player.lives, 10, 90);
-}
-
-function renderLevel() {
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '20px Arial';
-    ctx.fillText('Level: ' + currentLevel, 10, 120);
+    ctx.fillText('Lives: ' + player.lives, 10, 580);
 }
 
 function renderEnemies() {
@@ -59,6 +53,5 @@ function renderGame() {
         renderScore();
         renderRemainingEnemies();
         renderLives();
-        renderLevel();
     }
 }
