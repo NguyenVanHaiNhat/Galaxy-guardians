@@ -112,8 +112,8 @@ function updateEnemies() {
             let minDistance = 20;
             if (distance < minDistance) {
                 // Điều chỉnh hướng di chuyển hoặc tốc độ theo nhu cầu
-                // Ví dụ: enemies[i].directionX *= -1; // Đảo hướng di chuyển
-                // Hoặc: enemies[i].speed *= 0.9; // Giảm tốc độ
+                // enemies[i].directionX *= -1; // Đảo hướng di chuyển
+               // enemies[i].speed *= 0.9; // Giảm tốc độ
             }
         }
     }
@@ -219,7 +219,7 @@ function gameOver() {
     gameOverDiv.innerHTML = `
         <h2>Game Over! Your score is ${score}</h2>
         <button onclick="retryGame()">TryAgain</button>
-        <button onclick="exitGame()">Exit</button>
+        <button onclick="exitGame()">return start screen</button>
     `;
 
     document.body.appendChild(gameOverDiv);
@@ -236,9 +236,8 @@ function retryGame() {
 
 function exitGame() {
     // Đóng trình duyệt hoặc chuyển đến trang chính
-    window.close(); // Đóng trình duyệt
     // hoặc
-    // window.location.href = 'index.html'; // Chuyển đến trang chính (thay 'index.html' bằng đường dẫn tương ứng)
+    window.location.href = 'startScreen.html'; // Chuyển đến trang chính (thay 'index.html' bằng đường dẫn tương ứng)
 }
 
 function nextLevel() {

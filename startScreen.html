@@ -3,37 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Galaxy Guardians</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
-<style>
-    body {
-        background-image: url(./images/image.png);
-        background-size: cover;
-        text-align: center;
-    }
-    h1 {
-        font-size: 120px;;
-        text-align: center;;
-        background-color: white;
-        color: #58257b;
-        text-shadow: 5px 5px violet;
-
-    }
-    button {
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 0 auto;
-        cursor: pointer;
-        font-size: 60px;
-        background-color: yellow;
-        color: black;
-        border-radius: 100px;
-    }
-</style>
 <body>
-<h1> Galaxy Guardians </h1>
+<h1 class="nameGame">Galaxy Guardians</h1>
 <button class="center" id="start" onclick="startGame()">START</button>
+<div id="description">
+    <h1>Author: Nguyễn Văn Hải Nhật</h1>
+    <h2>Description:</h2>
+    <p>Control your plane with the mouse cursor, press space to shoot (can be pressed to support the button)</p>
+    <p>If you collide with an object or a monster's bullet, everything will not end. If you have 5 lives, if you lose all 5 lives, you will lose.</p>
+    <p>Destroying enemies will give you points and for every 100 point you will get 1 extra life</p>
+    <h1>Happy enjoy my game!</h1>
+</div>
 <script src="./javascript/main.js">
 </script>
 </body>

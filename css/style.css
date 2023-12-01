@@ -1,0 +1,37 @@
+html {
+    background-image: url(/images/background_image00.jpg);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-image: url(/images/background.webp);
+    background-size: cover;
+    text-align: center;
+}
+.nameGame {
+    font-size: 90px;;
+    text-align: center;;
+    color: #0ed246;
+    text-shadow: 5px 5px white;
+
+}
+button {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 60px;
+    background-color: yellow;
+    color: black;
+    border-radius: 100px;
+}
+#description {
+    text-align: center;
+    color: white;
+}
+
+
