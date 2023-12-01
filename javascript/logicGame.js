@@ -14,6 +14,7 @@ function shoot() {
         lastShotTime = currentTime;
 
         if (isSoundOn) {
+            shootSound.volume = shootVolume;
             shootSound.play();
         }
     }
@@ -53,6 +54,9 @@ function updateBullets() {
                 i--;
                 enemies.splice(j, 1);
                 remainingEnemies--;
+
+                killEnemySound.volume = enemyDeathVolume;
+                killEnemySound.play();
 
                 if (remainingEnemies === 0) {
                     nextLevel();
@@ -145,7 +149,7 @@ function updateEnemies() {
     }
     if (currentTime - lastEnemyShootTime > enemyShootInterval) {
         // Chọn ngẫu nhiên 5 kẻ thù từ mảng và cho chúng bắn
-        let randomEnemies = getRandomEnemies(5);
+        let randomEnemies = getRandomEnemies(10);
         randomEnemies.forEach((enemy) => {
             enemyShoot(enemy);
         });
@@ -210,10 +214,10 @@ function gameOver() {
     gameOverDiv.style.top = '50%';
     gameOverDiv.style.left = '50%';
     gameOverDiv.style.transform = 'translate(-50%, -50%)';
-    gameOverDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    gameOverDiv.style.backgroundColor = 'rgb(255,255,255)';
     gameOverDiv.style.padding = '20px';
     gameOverDiv.style.textAlign = 'center';
-    gameOverDiv.style.color = '#fff';
+    gameOverDiv.style.color = '#d20e0e';
     gameOverDiv.style.borderRadius = '10px';
 
     gameOverDiv.innerHTML = `
@@ -226,18 +230,15 @@ function gameOver() {
 }
 
 function retryGame() {
-    // Xóa hộp thoại thông báo Game Over
     document.body.removeChild(document.querySelector('div'));
 
-    // Gọi lại hàm resetGame để bắt đầu lại trò chơi
     resetGame();
     gameOvers = false;
 }
 
 function exitGame() {
-    // Đóng trình duyệt hoặc chuyển đến trang chính
-    // hoặc
-    window.location.href = 'startScreen.html'; // Chuyển đến trang chính (thay 'index.html' bằng đường dẫn tương ứng)
+
+    window.location.href = 'startScreen.html';
 }
 
 function nextLevel() {
