@@ -124,6 +124,7 @@ function updateBullets() {
     }
 }
 
+
 function addLife() {
     if (score > 0 && score % 100 === 0) {
         player.lives++;
@@ -203,13 +204,20 @@ function updateEnemies() {
 
 function getRandomEnemies(n) {
     let randomEnemies = [];
+
+    // Lặp cho đến khi đủ số lượng kẻ địch được yêu cầu
     while (randomEnemies.length < n && enemiesCanShoot.length > 0) {
+        // Chọn ngẫu nhiên một kẻ địch từ mảng enemiesCanShoot
         let randomIndex = Math.floor(Math.random() * enemiesCanShoot.length);
         randomEnemies.push(enemiesCanShoot[randomIndex]);
+
+        // Loại bỏ kẻ địch đã được chọn khỏi mảng enemiesCanShoot
         enemiesCanShoot.splice(randomIndex, 1);
     }
+
     return randomEnemies;
 }
+
 
 function checkCollisions() {
     for (let enemy of enemies) {
@@ -281,10 +289,8 @@ function nextLevel() {
     if (currentLevel <= 2) {
         alert('Level ' + currentLevel + ' complete! Get ready for the next level!');
         resetGame();
-    } else if (currentLevel === 3) {
-        alert('Boss Level! Prepare for the final showdown!');
-        spawnBoss();
-    } else {
+    }
+    else {
         gameWin();
     }
 }
@@ -305,12 +311,34 @@ function resetGame() {
         spawnEnemyStage1();
     } else if (currentLevel === 2) {
         spawnEnemyStage2();
-    } else if (currentLevel === 3) {
-        spawnBoss();
     }
 }
 
 function gameWin() {
-    alert('Congratulations! You have defeated all enemies and won the game!');
-    resetGame();
+    gameOvers = true;
+
+    enemies = [];
+    bullets = [];
+    enemyBullets = [];
+
+    // Hiển thị hộp thoại thông báo Chiến thắng
+    let gameWinDiv = document.createElement('div');
+    gameWinDiv.style.position = 'absolute';
+    gameWinDiv.style.top = '50%';
+    gameWinDiv.style.left = '50%';
+    gameWinDiv.style.transform = 'translate(-50%, -50%)';
+    gameWinDiv.style.backgroundColor = 'rgb(255,255,255)';
+    gameWinDiv.style.padding = '20px';
+    gameWinDiv.style.textAlign = 'center';
+    gameWinDiv.style.color = '#0e8ed2';
+    gameWinDiv.style.borderRadius = '10px';
+
+    gameWinDiv.innerHTML = `
+        <h2>Congratulations! You have defeated all enemies and won the game!</h2>
+        <p>Your final score is: ${score}</p>
+        <button onclick="retryGame()">Play Again</button>
+        <button onclick="exitGame()">Return to Start Screen</button>
+    `;
+
+    document.body.appendChild(gameWinDiv);
 }
