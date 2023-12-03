@@ -1,3 +1,4 @@
+
 function spawnEnemyStage1() {
     let numRows = 4;
     let rowWidth = canvas.width / 5;
@@ -23,3 +24,4 @@ function spawnEnemyStage1() {
         }
     }
 }
+

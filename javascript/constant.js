@@ -9,6 +9,7 @@ let player = {
     lives: 5,
 };
 
+
 let enemyImage1 = new Image();
 enemyImage1.src = "./images/enemy1.png";
 let enemyImage2 = new Image();
@@ -37,4 +38,6 @@ const shootSound = new Audio('./sounds/shoot.wav');
 let killEnemySound = new Audio('/sounds/enemy-death.wav');
 let shootVolume = 0.2;
 let enemyDeathVolume = 0.2;
+
+
 

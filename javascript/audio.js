@@ -7,6 +7,7 @@ function playShootSound() {
     shootSound.play();
 }
 
+
 window.addEventListener('load', function() {
     playBackgroundMusic();
 });
@@ -30,3 +31,4 @@ function toggleSound() {
 
     }
 }
+

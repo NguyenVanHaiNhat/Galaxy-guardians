@@ -314,6 +314,7 @@ function resetGame() {
     }
 }
 
+
 function gameWin() {
     gameOvers = true;
 
@@ -342,3 +343,4 @@ function gameWin() {
 
     document.body.appendChild(gameWinDiv);
 }
+

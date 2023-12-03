@@ -41,6 +41,7 @@ function renderEnemies() {
     }
 }
 
+
 function renderGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -55,3 +56,4 @@ function renderGame() {
         renderLives();
     }
 }
+

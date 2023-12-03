@@ -1,3 +1,4 @@
+
 function spawnEnemyStage2() {
     let rowY = 0;
     let rowWidth = canvas.width / 5;
@@ -26,3 +27,5 @@ function spawnEnemyStage2() {
     spawnEnemies();
     setInterval(spawnEnemies, spawnInterval);
 }
+
+
